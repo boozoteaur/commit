@@ -21,14 +21,43 @@
   display: flex;
   min-height: 100vh;
   width: 100%;
-  max-width: 800px;
+  /* max-width: 800px; */
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  background-color: #ebe2e2;
+  background-image: url("/hideaway.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+.background-layer {
+    background-image: "/hideaway.jpg";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.top{
+  background-color: #DBDBDB;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-center;
+  width: 100%;
+
+  /* padding: 120px 60px; */
+  font-size: 40px;
+  font-weight: 600;
+  font-family: var(--font-anek-bangla);
+}
+
+.topinfo{display: flex;
+ flex-direction: row; 
+ margin: 0 auto;
+ padding: 10px 0 ;
+  gap: 24px;
+}
 .intro {
   display: flex;
   flex-direction: column;
@@ -36,7 +65,27 @@
   text-align: left;
   gap: 24px;
 }
+.menubox{
+  display: flex;
+  width: 100%;
 
+  background-color: #ffffff;
+}
+.menu{
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  
+  font-size: 20px;
+  font-weight: 600;
+}
+.menuitem{
+  padding: 15px;
+  cursor: pointer;
+}
+.menuitem:hover{
+  color: red
+}
 .intro h1 {
   max-width: 320px;
   font-size: 40px;
@@ -120,6 +169,12 @@ a.secondary {
     line-height: 40px;
     letter-spacing: -1.92px;
   }
+}
+
+@media(min-width: 1025px) {
+    .main{
+        background-attachment:scroll;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
