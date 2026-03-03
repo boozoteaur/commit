@@ -1,0 +1,22 @@
+.button{
+    display: flex;
+    flex-direction: row;
+    padding:  8px 20px;
+    justify-content: center;
+    border-radius: 100px;
+    gap: 4px;
+    align-items: center;
+    cursor: pointer;
+    margin: auto;
+    
+}
+
+.button:hover{
+    padding:  9px 21px;
+}
+
+.logo{
+    padding: 0;
+    height: 10px;
+    width: 10px;
+}

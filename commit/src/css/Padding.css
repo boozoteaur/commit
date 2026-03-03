@@ -1,0 +1,12 @@
+.padding {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    padding-left: 3%;
+    padding-right: 3%;
+    gap: 50px;
+    @media (max-width: 600px) {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
