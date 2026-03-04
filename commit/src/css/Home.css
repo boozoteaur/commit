@@ -277,6 +277,43 @@
 .middleText{
     width: 226px;
 }
+
+.license{
+    background-color: #F6F6F9;
+    border-radius: 16px;
+    max-width: 1310px;
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px;
+        .licenseCarousel{
+            width: 100%;
+            align-self: flex-start;
+            overflow: scroll;
+            gap: 25px;
+            display: flex;
+            flex-direction: row;
+            .licenseItem{
+                display: flex;
+                max-height: 390px;
+                width: 275px;
+                cursor: pointer;
+            }
+        }
+        .licenseCarousel::-webkit-scrollbar{
+            visibility: hidden;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            align-self: center;
+            gap: 24px;
+            cursor: pointer;
+        }
+        
+    }
+}
 @keyframes parnters {
     0%{
         translate: 0% ;

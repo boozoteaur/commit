@@ -21,6 +21,7 @@ import director from '../assets/director.svg'
 import example from '../assets/example.png'
 import check from '../assets/check.svg'
 import service from '../assets/service.png'
+import arrowButton from '../assets/arrowButton.svg'
 
 const Home =()=>{
     
@@ -285,6 +286,64 @@ const Home =()=>{
                 </div>
             </div>
         </div>
+        <div className='license'>
+            <div className='container'>
+                <div className='title'>
+                    <Title color='#1C8EFF' text="Наши "/> 
+                    <Title text="лицензии и сертификаты"/>
+                </div>
+                <div className='licenseCarousel'> 
+                    <div className='licenseItem'>
+                        <img src="\src\assets\d14f85c9e9e52cebca0f31afe4f4e9e2976c3c08.png"/>
+                    </div>
+                    <div className='licenseItem'>
+                        <img src="\src\assets\27160338aefc41b9058bb49d169822fbbde3d3d4.png"/>
+                    </div>
+                    <div className='licenseItem'>
+                        <img src="\src\assets\563efb0684467103cfa9d7336337d5acffd8aa2a.png"/>
+                    </div>
+                    <div className='licenseItem'>
+                        <img src="\src\assets\7b0ce6962d725589a38fcd6a9e7aba0fe67f8bfe.png"/>
+                    </div>
+                    <div className='licenseItem'>
+                        <img src="\src\assets\4ae1051048c0f08efd49fa90980d3dbaf97338c8.png"/>
+                    </div>
+                    <div className='licenseItem'>
+                        <img src="\src\assets\3f0b3921e9d44a9caeb6a33225b78ec142a99bd2.png"/>
+                    </div>
+                </div>
+                <div className='buttons'>
+                    <div>
+                        <img src={arrowButton}/>
+                    </div>
+                    <div>
+                        <img style={{transform: "rotate(180deg)"}}src={arrowButton}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+            </div><div>
+            </div><div>
+            </div><div>
+            </div>
+            </div>
+            </div>
+            <div>
+
+            </div>
+            </div>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
     </div>
    
     )
