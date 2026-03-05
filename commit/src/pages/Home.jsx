@@ -22,11 +22,39 @@ import example from '../assets/example.png'
 import check from '../assets/check.svg'
 import service from '../assets/service.png'
 import arrowButton from '../assets/arrowButton.svg'
+import caseImg from '../assets/case.png'
+import { useState } from 'react'
 
 const Home =()=>{
-    
+    const [left,setLeft]=useState(0)
+    const [zoom,setZoom]=useState({
+        lic1:false,
+        lic2:false,
+        lic3:false,
+        lic4:false,
+        lic5:false,
+        lic6:false})
+    const zoomValue= {width:`${275*2.5}px`,height:`${390*2.5}px`}
+    const handleScroll = (a) =>{
+        if(left==-600)
+        {
+            if(a<0)
+                return
+            else
+                setLeft(left+a)
+        }
+        if(left==0)
+        {
+            if(a>0)
+                return
+            else
+                setLeft(left+a)
+        }
+        else 
+            setLeft(left+a)
+    }
     return(
-    <div className='homeContainer'> 
+    <div className='homeContainer' onClick={()=>zoom?setZoom(false):{}}> 
         <div className='hero'>
             <div className='leftSide'>
                 <div className='leftSide1'>все наши специалисты имеют профессиональное образование и опыт более 15 лет работы</div>
@@ -286,60 +314,90 @@ const Home =()=>{
                 </div>
             </div>
         </div>
-        <div className='license'>
-            <div className='container'>
+        <div className='license' >
+            <div className='container' >
                 <div className='title'>
                     <Title color='#1C8EFF' text="Наши "/> 
                     <Title text="лицензии и сертификаты"/>
                 </div>
-                <div className='licenseCarousel'> 
-                    <div className='licenseItem'>
+                <div className='licenseCarousel' id='carousel' style={{left:`${left}px`}}> 
+                    <div className='licenseItem' onClick={()=>setZoom({...zoom,lic1:!zoom.lic1})} style={zoom.lic1?zoomValue:{}}>
                         <img src="\src\assets\d14f85c9e9e52cebca0f31afe4f4e9e2976c3c08.png"/>
                     </div>
-                    <div className='licenseItem'>
+                    <div className='licenseItem' onClick={()=>setZoom({...zoom,lic2:!zoom.lic2})} style={zoom.lic2?zoomValue:{}}>
                         <img src="\src\assets\27160338aefc41b9058bb49d169822fbbde3d3d4.png"/>
                     </div>
-                    <div className='licenseItem'>
+                    <div className='licenseItem' onClick={()=>setZoom({...zoom,lic3:!zoom.lic3})} style={zoom.lic3?zoomValue:{}}>
                         <img src="\src\assets\563efb0684467103cfa9d7336337d5acffd8aa2a.png"/>
                     </div>
-                    <div className='licenseItem'>
+                    <div className='licenseItem' onClick={()=>setZoom({...zoom,lic4:!zoom.lic4})} style={zoom.lic4?zoomValue:{}}>
                         <img src="\src\assets\7b0ce6962d725589a38fcd6a9e7aba0fe67f8bfe.png"/>
                     </div>
-                    <div className='licenseItem'>
+                    <div className='licenseItem' onClick={()=>setZoom({...zoom,lic5:!zoom.lic5})} style={zoom.lic5?zoomValue:{}}>
                         <img src="\src\assets\4ae1051048c0f08efd49fa90980d3dbaf97338c8.png"/>
                     </div>
-                    <div className='licenseItem'>
+                    <div className='licenseItem' onClick={()=>setZoom({...zoom,lic6:!zoom.lic6})} style={zoom.lic6?zoomValue:{}}>
                         <img src="\src\assets\3f0b3921e9d44a9caeb6a33225b78ec142a99bd2.png"/>
                     </div>
                 </div>
                 <div className='buttons'>
-                    <div>
+                    <div className='button'  onClick={()=>handleScroll(300)}>
                         <img src={arrowButton}/>
                     </div>
-                    <div>
+                    <div className='button' onClick={()=>handleScroll(-300)}>
                         <img style={{transform: "rotate(180deg)"}}src={arrowButton}/>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-            <div>
+        <div className='case'>
+            <div className='title'>
+                <Title text="Главный"/> 
+                <Title color='#1C8EFF' text="кейс"/>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-            </div><div>
-            </div><div>
-            </div><div>
-            </div>
-            </div>
-            </div>
-            <div>
-
-            </div>
-            </div>
+            <div className='container'>
+                <div className='left'>
+                    <div className='topContainer'>
+                        <div className='top'>
+                            Цифровая трансформация
+                        </div>
+                        <Title size="36px" color="white" text="ГУП «ЖКХ РС(Я)» "/>
+                        <Title weight="400" size="16px" color="white" text="Комплексная цифровизация жилищно-коммунального одного из крупных предприятий РС(Я)"/>
+                    </div>
+                    <img src={caseImg}/>
+                </div>
+                <div className='right'>
+                    <div className='Rightcontainer'>
+                        <div className='containerItembg'>
+                            <div className='containerItem'> 
+                                <Title size="22px" color="black" text="Основная задача:"/>
+                                <Title size="16px" color="#828282" text="Реализация стратегии цифровой трансформации"/>
+                            </div>
+                        </div>
+                        <div className='containerItembg'>
+                            <div className='containerItem'>
+                                <Title size="22px" color="black" text="Выполненные работы:"/>
+                                <div className='gridNoteItem'>
+                                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Модернизация биллинговых систем (физ. и юр. лица)"/>
+                                </div><div className='gridNoteItem'>
+                                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Внедрение ПО «Топливо и транспорт»"/>
+                                </div><div className='gridNoteItem'>
+                                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Запуск чат-бота и личного кабинета"/>
+                                </div><div className='gridNoteItem'>
+                                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Модернизация серверного оборудования"/>
+                                </div><div className='gridNoteItem'>
+                                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Внедрение IP-телефонии"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='containerItembg2'>
+                            <div className='containerItem2'> 
+                                <Title size="22px" color="white" text="Результат:"/>
+                                <Title size="16px" color="white" text="Сокращение времени обработки платежей на 60%, полное импортозамещение базового ПО, интеграция с ГИС ЖКХ"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div></div>
