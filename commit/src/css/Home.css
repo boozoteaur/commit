@@ -387,6 +387,130 @@
         }
     }
 }
+.formContainer{
+    display: flex;
+    flex-direction: row;
+    max-width: 1310px;
+    .form{
+        padding: 40px;
+        display: flex;
+        width: 700px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap:16px;
+        .gridNoteItem{
+            display: flex;
+        }
+        .input{
+            width: 100%;
+            display: flex;
+            padding: 14px 0px 14px 26px;
+            border-radius: 25px;
+            border: 1px solid #1C8EFF;
+            resize: none;
+
+        }
+        .input::placeholder{
+            font-size: 16px;
+            color: #828282;
+        }
+        .textareaContainer{
+            
+            width: 700px;
+            position: relative;
+        }
+        .textareaContainer textarea{
+            width: 100%;
+            padding: 14px 0px 14px 26px;
+            border-radius: 25px;
+            border: 1px solid #1C8EFF;
+            resize: none;
+        }
+        
+        .textareaContainer  label{
+            position: absolute;
+            top: 2px;
+            left: 11px;
+            user-select: none;
+            cursor: text;  
+            padding: 8px 16px;
+            color: #828282; 
+        }
+        .textareaContainer label::after{
+            content: ' { необязательно }';
+            color: #1C8EFF;
+
+        }
+        .textareaContainer textarea:invalid+label {
+            display: inline-block;
+        }
+        .textareaContainer textarea:valid + label {
+            display: none;  
+        }
+        .checkBox{
+            .chek{
+                width: 22px;
+                height: 22px;
+            }
+            .policy{
+               color: #828282; 
+               a{
+                text-decoration: underline;
+                color: #1C8EFF;
+               }
+            }
+            gap: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        .acceptance{
+            color:#828282;
+            a{
+                text-decoration: underline;
+                color: #1C8EFF;
+            }
+        }
+        
+
+    }
+    .right{
+        background-color:#F6F6F9;
+        border-radius: 16px;
+        .container{
+            display: flex;
+            flex-direction: column;
+            padding: 40px 40px 0 40px;
+            gap:40px;
+            .list{
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                .item{
+                    gap:4px;
+                    display: flex;
+                    flex-direction: row;
+                }
+            }
+            .security{
+                background-color:#ffffff;
+                border-radius: 16px;
+                .cnt{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 20px 40px ;
+                    gap: 4px;
+                    .list{
+                        gap:10px;
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+            }
+        }
+            
+    }
+}
 @keyframes parnters {
     0%{
         translate: 0% ;

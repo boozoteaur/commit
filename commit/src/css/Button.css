@@ -8,11 +8,14 @@
     align-items: center;
     cursor: pointer;
     margin: auto;
-    
+    transition: all 0.2s ease;
 }
 
 .button:hover{
-    padding:  9px 21px;
+    box-shadow: 1px 1px 1px 1px rgba(138, 139, 139, 0.96);
+}
+.button:active{
+    box-shadow: 3px 3px 3px 3px rgba(138, 139, 139, 0.96);
 }
 
 .logo{

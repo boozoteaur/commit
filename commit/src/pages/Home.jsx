@@ -23,6 +23,11 @@ import check from '../assets/check.svg'
 import service from '../assets/service.png'
 import arrowButton from '../assets/arrowButton.svg'
 import caseImg from '../assets/case.png'
+import resident from '../assets/resident.svg'
+import exp from '../assets/exp.svg'
+import def from '../assets/def.svg'
+import withLogo from '../assets/withLogo.png'
+
 import { useState } from 'react'
 
 const Home =()=>{
@@ -379,13 +384,17 @@ const Home =()=>{
                                 <Title size="22px" color="black" text="Выполненные работы:"/>
                                 <div className='gridNoteItem'>
                                     <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Модернизация биллинговых систем (физ. и юр. лица)"/>
-                                </div><div className='gridNoteItem'>
+                                </div>
+                                <div className='gridNoteItem'>
                                     <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Внедрение ПО «Топливо и транспорт»"/>
-                                </div><div className='gridNoteItem'>
+                                </div>
+                                <div className='gridNoteItem'>
                                     <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Запуск чат-бота и личного кабинета"/>
-                                </div><div className='gridNoteItem'>
+                                </div>
+                                <div className='gridNoteItem'>
                                     <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Модернизация серверного оборудования"/>
-                                </div><div className='gridNoteItem'>
+                                </div>
+                                <div className='gridNoteItem'>
                                     <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Внедрение IP-телефонии"/>
                                 </div>
                             </div>
@@ -400,8 +409,80 @@ const Home =()=>{
                 </div>
             </div>
         </div>
-        <div></div>
-        <div></div>
+        <div className='formContainer'>
+            <div className='form'>
+                <div className='title'>
+                    <Title text="Обсудить"/> 
+                    <Title color='#1C8EFF' text="проект"/>
+                </div>
+                 <Title color='#828282' size='16px' text="От концепции до релиза — подберём оптимальную стратегию разработки за 1 рабочий день"/>
+                 <div className='gridNoteItem'>
+                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Ответим в течение 1 рабочего дня"/>
+                </div>
+                    <div className='gridNoteItem'>
+                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Оценка стоимости и сроков"/>
+                </div>
+                    <div className='gridNoteItem'>
+                    <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Обсудим формат сотрудничества"/>
+                </div>
+                <input className='input' required placeholder='Введите ваше имя *'/>
+                <input className='input' type='number' required placeholder='+7(000)000-00-00 *'/>
+                <input className='input' required placeholder='mail@company.ru *'/>
+                <div className='textareaContainer'>
+                    <textarea required id='textarea' rows="5" cols="30" />
+                    <label for="textarea">Опишите вашу ситуацию</label>
+                </div>
+                <div className='checkBox'>
+                    <input className='chek' required type='checkbox' />
+                    <div className='policy'>
+                        Я согласен(-на) с условиями {' '}
+                        <a href=''>Политики конфиденциальности</a>{' '}
+                         и разрешаю обработку моих персональных данных согласно{' '}
+                        <a href=''>Политике обработки персональных данных</a>
+
+                    </div>
+                </div>
+                <Button margin='0px'color='#1C8EFF' text={'Оставить заявку'}/>
+                <div className='acceptance'>
+                    Отправляя форму, вы даёте согласие на обработку ваших персональных данных (ФИО, номер телефона, электронную почту и комментарий) для связи с вами и обработки вашей заявки. Данные будут храниться в течение <a>12 месяцев</a>. Вы можете отозвать своё согласие в любой момент.
+                </div>
+            </div>
+            <div className='right'>
+                <div className='container'>
+                    
+                    <Title color='#1C8EFF' size='12px' text="{1}"/> 
+                    <div className='list'>
+                        <div className='item'>
+                            <img src={resident}/>
+                            <div>
+                                <Title size='22px' text="110+ компаний"/> 
+                                <Title color='#828282' size='16px' text="Уже доверили нам разработку ПО"/> 
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <img src={exp}/>
+                            <div>
+                                <Title size='22px' text="15+ лет опыта"/> 
+                                <Title color='#828282' size='16px' text="Оценка стоимости и сроков"/> 
+                            </div>
+                        </div>
+                    </div>
+                    <div className='security'>
+                        <div className='cnt'>
+                            <div className='list'>
+                                <img src={def}/>
+                                <div>
+                                    <Title size='22px' text="Ваши данные под защитой"/> 
+                                </div>
+                            </div>
+                            <Title color='#828282' size='16px' text="Мы используем SSL-шифрование и обеспечиваем полную защиту ваших данных"/> 
+                            
+                        </div>
+                    </div>
+                    <img src={withLogo}/>
+                </div>
+            </div>
+        </div>
     </div>
    
     )
