@@ -8,13 +8,16 @@ import {
 
 const Layout = ({ children, ...props }) => {
     return (
+    <>
         <Padding>
             <Header/>
             <div className='content'>
                 <div className="inside">{children}</div>
             </div>
-            <Footer/>
+            
         </Padding>
+        <Footer/>
+    </>
     )
 }
 

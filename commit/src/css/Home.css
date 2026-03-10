@@ -487,7 +487,7 @@
                 flex-direction: column;
                 gap: 25px;
                 .item{
-                    gap:4px;
+                    gap:8px;
                     display: flex;
                     flex-direction: row;
                 }
@@ -526,7 +526,7 @@
     0%{
         align-items: center;
     }
-    100%{
+    36%{
         align-items: center;
         justify-content : flex-end;
     }
@@ -535,11 +535,11 @@
     0%{
         
     }
-    60%{
+    13%{
         position: fixed;
         top: 40px;
     }
-    90%{
+    36%{
         position: fixed;
         top: 40px;
        
@@ -553,27 +553,22 @@
         column-gap:200px;
 
     }
-    30%{
-        
-        column-gap:200px;
-    }
-    60%{
+    13%{
         position: fixed;
         top: 50px;
     }
-    90%{
+    36%{
         column-gap:0px;
         position: fixed;
         top:50px;
     } 
-    99%{
+    36%{
         column-gap:0px;
         padding-top: 110px;
         position: relative;
     }
     100%{
         column-gap:0px;
-        padding-top: 40px;
         position: relative;
     }
 }

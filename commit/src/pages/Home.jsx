@@ -60,6 +60,8 @@ const Home =()=>{
     }
     return(
     <div className='homeContainer' onClick={()=>zoom?setZoom(false):{}}> 
+    
+        <div style={{position:'fixed',top:'0px;'}}>{document.documentElement.scrollTop}</div>
         <div className='hero'>
             <div className='leftSide'>
                 <div className='leftSide1'>все наши специалисты имеют профессиональное образование и опыт более 15 лет работы</div>
@@ -111,7 +113,7 @@ const Home =()=>{
                     </div></div>
             </div>
         </div>
-        <img className='homeElement' src={iPad}/>
+        <img className='homeElement' id='about'src={iPad}/>
         <div className='partnerContainer'>
             <div className='partners'>
                 <img src={vodokanal}/> 
@@ -124,7 +126,7 @@ const Home =()=>{
             </div>
         </div>
         <img className='homeElement' src={director}/>
-        <div className='productContainer'>
+        <div className='productContainer' id='product'>
             <div className='title'><Title color='#1C8EFF' text="Ключевые программные "/> <Title text="продукты собственной разработки"/></div>
             <div className='listGrid'>
                 <div className='listItemBg'>
@@ -225,7 +227,7 @@ const Home =()=>{
                 </div>
             </div>
         </div>
-        <div className='services'>
+        <div className='services' id='services'>
             <div className='title'><Title color='#1C8EFF' text="Предоставляемые услуги "/> <Title text="нашей компании"/></div>
             
             <div className='serviceBox'>
@@ -241,7 +243,7 @@ const Home =()=>{
                         </div>
                     </div>
                     <div className='text'> 
-                        <div style={{fontSize:"16px",color:"#828282"}}><img src={star}/> Наши услуги ориентированы на долгосрочную ценность: мы не просто реализуем отдельные задачи, а <a style={{color:"#1C8EFF"}}>выстраиваем технологическую основу для роста, масштабирования и развития бизнеса</a>. Надёжность, контроль и ответственность — ключевые принципы нашей работы.</div>
+                        <div style={{fontSize:"16px",color:"#828282"}}><img src={star}/> Наши услуги ориентированы на долгосрочную ценность: мы не просто реализуем отдельные задачи, a <a style={{color:"#1C8EFF"}}>выстраиваем технологическую основу для роста, масштабирования и развития бизнеса</a>. Надёжность, контроль и ответственность — ключевые принципы нашей работы.</div>
                     </div>
                 </div>
                 <div className='serviceList'>
@@ -319,7 +321,7 @@ const Home =()=>{
                 </div>
             </div>
         </div>
-        <div className='license' >
+        <div className='license' id='profolio' >
             <div className='container' >
                 <div className='title'>
                     <Title color='#1C8EFF' text="Наши "/> 
@@ -444,7 +446,7 @@ const Home =()=>{
                 </div>
                 <Button margin='0px'color='#1C8EFF' text={'Оставить заявку'}/>
                 <div className='acceptance'>
-                    Отправляя форму, вы даёте согласие на обработку ваших персональных данных (ФИО, номер телефона, электронную почту и комментарий) для связи с вами и обработки вашей заявки. Данные будут храниться в течение <a>12 месяцев</a>. Вы можете отозвать своё согласие в любой момент.
+                    Отправляя форму, вы даёте согласие на обработку ваших персональных данных (ФИО, номер телефона, электронную почту и комментарий) для связи c вами и обработки вашей заявки. Данные будут храниться в течение <a>12 месяцев</a>. Вы можете отозвать своё согласие в любой момент.
                 </div>
             </div>
             <div className='right'>
