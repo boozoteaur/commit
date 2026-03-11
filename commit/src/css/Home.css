@@ -89,32 +89,26 @@
 }
 
 .title{
-    animation: anchor auto linear; 
-    animation-timeline: scroll(block);  
     display: flex;
     gap: 15px;
     justify-content: center;
-    
-    
 }
 
 .benefit{
     width: 100%;
-    height: 3500px;
     display: flex;
     flex-direction: column;
-    animation: flex auto linear; 
-    animation-timeline: scroll(block); 
+    /* animation: flex auto linear; 
+    animation-timeline: scroll(block);  */
     .benefitCarousel{
-        animation: slide auto linear; 
-        animation-timeline: scroll(block); 
+        /* animation: slide auto linear; 
+        animation-timeline: scroll(block);  */
         width: 97%;
-        position: absolute;
-        padding-top: 110px;
-        padding-bottom: 300px;
+        padding-top: 50px;
+        padding-bottom: 50px;
         display: flex;
         flex-direction: row;
-        gap: 200px;
+        gap: 400px;
         align-self: flex-start;
         overflow-x: hidden;
         overflow-y: hidden;
@@ -425,6 +419,8 @@
             border-radius: 25px;
             border: 1px solid #1C8EFF;
             resize: none;
+            font-family: 'Inter';
+            font-size: 16px;
         }
         
         .textareaContainer  label{
@@ -531,44 +527,14 @@
         justify-content : flex-end;
     }
 }
-@keyframes anchor {
-    0%{
-        
-    }
-    13%{
-        position: fixed;
-        top: 40px;
-    }
-    36%{
-        position: fixed;
-        top: 40px;
-       
-    }
-    100%{
-        
-    }
-}
+
 @keyframes slide {
     0%{
-        column-gap:200px;
+        column-gap:400px;
 
-    }
-    13%{
-        position: fixed;
-        top: 50px;
-    }
-    36%{
-        column-gap:0px;
-        position: fixed;
-        top:50px;
-    } 
-    36%{
-        column-gap:0px;
-        padding-top: 110px;
-        position: relative;
     }
     100%{
         column-gap:0px;
-        position: relative;
+        
     }
 }

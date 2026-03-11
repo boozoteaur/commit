@@ -28,10 +28,20 @@ import exp from '../assets/exp.svg'
 import def from '../assets/def.svg'
 import withLogo from '../assets/withLogo.png'
 
+import sendMail from '../../utils/mailer'
+
 import { useState } from 'react'
 
 const Home =()=>{
+    const [consult, setConsult] = useState({
+        fio: '',
+        phone: '',
+        email: '',
+        desc: '',
+        conf: false
+    })
     const [left,setLeft]=useState(0)
+    const [scrollPosition,setscrollPosition]=useState(0)
     const [zoom,setZoom]=useState({
         lic1:false,
         lic2:false,
@@ -58,10 +68,21 @@ const Home =()=>{
         else 
             setLeft(left+a)
     }
+    window.addEventListener('scroll', function () {
+        setscrollPosition(window.scrollY);
+    });
+    const mail=()=>
+        {
+            sendMail({
+                to: 'vinokurov_vasiliy_dm@mail.ru',
+                subject: "Заявка",
+                text: ` ${consult.desc}`,
+                html: ' ',
+            })}
+            
+            
     return(
     <div className='homeContainer' onClick={()=>zoom?setZoom(false):{}}> 
-    
-        <div style={{position:'fixed',top:'0px;'}}>{document.documentElement.scrollTop}</div>
         <div className='hero'>
             <div className='leftSide'>
                 <div className='leftSide1'>все наши специалисты имеют профессиональное образование и опыт более 15 лет работы</div>
@@ -77,7 +98,7 @@ const Home =()=>{
         </div>
         <div className='benefit'>
             <div className='title'><Title color='#1C8EFF' text="Преимущества "/> <Title text="работы с нами"/></div>
-            <div className='benefitCarousel'>
+            <div className='benefitCarousel' style={scrollPosition>=600?{animation: 'slide 3s linear',columnGap:'0px'}:{}}>
                 <div className='BCItem'>
                     <div className='container'>
                         <Title color='#1C8EFF' size='12px' text="{1}"/> 
@@ -427,15 +448,15 @@ const Home =()=>{
                     <div className='gridNoteItem'>
                     <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Обсудим формат сотрудничества"/>
                 </div>
-                <input className='input' required placeholder='Введите ваше имя *'/>
-                <input className='input' type='number' required placeholder='+7(000)000-00-00 *'/>
-                <input className='input' required placeholder='mail@company.ru *'/>
+                <input className='input' onChange={(e)=>{setConsult({...consult, fio:e.target.value})}} required placeholder='Введите ваше имя *'/>
+                <input className='input' onChange={(e)=>{setConsult({...consult, phone:e.target.value})}} type='number' required placeholder='+7(000)000-00-00 *'/>
+                <input className='input' type='email' onChange={(e)=>{setConsult({...consult, email:e.target.value})}} required placeholder='mail@company.ru *'/>
                 <div className='textareaContainer'>
-                    <textarea required id='textarea' rows="5" cols="30" />
+                    <textarea onChange={(e)=>{setConsult({...consult, desc:e.target.value})}} required id='textarea' rows="5" cols="30" />
                     <label for="textarea">Опишите вашу ситуацию</label>
                 </div>
                 <div className='checkBox'>
-                    <input className='chek' required type='checkbox' />
+                    <input onChange={(e)=>{setConsult({...consult, conf:e.target.checked})}} className='chek' required type='checkbox' />
                     <div className='policy'>
                         Я согласен(-на) с условиями {' '}
                         <a href=''>Политики конфиденциальности</a>{' '}
@@ -444,7 +465,7 @@ const Home =()=>{
 
                     </div>
                 </div>
-                <Button margin='0px'color='#1C8EFF' text={'Оставить заявку'}/>
+                <Button onClick={mail}margin='0px'color='#1C8EFF' text={'Оставить заявку'}/>
                 <div className='acceptance'>
                     Отправляя форму, вы даёте согласие на обработку ваших персональных данных (ФИО, номер телефона, электронную почту и комментарий) для связи c вами и обработки вашей заявки. Данные будут храниться в течение <a>12 месяцев</a>. Вы можете отозвать своё согласие в любой момент.
                 </div>
