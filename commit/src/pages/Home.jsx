@@ -27,8 +27,8 @@ import resident from '../assets/resident.svg'
 import exp from '../assets/exp.svg'
 import def from '../assets/def.svg'
 import withLogo from '../assets/withLogo.png'
+import axios from 'axios'
 
-import sendMail from '../../utils/mailer'
 
 import { useState } from 'react'
 
@@ -71,14 +71,30 @@ const Home =()=>{
     window.addEventListener('scroll', function () {
         setscrollPosition(window.scrollY);
     });
-    const mail=()=>
-        {
-            sendMail({
-                to: 'vinokurov_vasiliy_dm@mail.ru',
-                subject: "Заявка",
-                text: ` ${consult.desc}`,
-                html: ' ',
-            })}
+    const mail=()=>{ 
+        axios.create({
+            headers: {
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Origin': 'http://localhost:5173',
+                'Content-Type': 'application/json'
+                    }})
+            if(consult.conf)
+                {
+                axios.post('http://localhost:3000/send_mail', consult).then(res=>
+                    {
+                        if(res.data=='OK')
+                        {
+                            setConsult({
+                                fio: '',
+                                phone: '',
+                                email: '',
+                                desc: '',
+                                conf: false
+                            })
+                        }
+                    })
+                }
+        }
             
             
     return(
@@ -88,7 +104,7 @@ const Home =()=>{
                 <div className='leftSide1'>все наши специалисты имеют профессиональное образование и опыт более 15 лет работы</div>
                 <div className='leftSide2'>Программное обеспечение <a>без рисков</a> — полный цикл разработки и технической поддержки</div>
                 <div className='leftSide3'>Берём ответственность за ваши ИТ-решения, снимая риски и операционную нагрузку, выступая надёжным технологическим партнёром по разработке и сопровождению</div>
-                <div className='leftSide4'><Button margin="0px" padding="14px 26px" color='#1C8EFF' text='Начать работу'/><Button margin="0px" padding="14px 26px" fontColor='black' color="white" text='Консультация' logo2={arrow}/></div>
+                <div className='leftSide4'><Button onClick={()=>{ var el= document.getElementById('form'); el.scrollIntoView({ behavior: 'smooth' })}}margin="0px" padding="14px 26px" color='#1C8EFF' text='Консультация' logo2={arrow}/></div>
                 <div className='leftSide5'><img src={star}/> Работаем с такими языками программирования, как:</div>
                 <img style={{width:'176px'}}src={programs}/>
                 <div className='leftSide5'><img src={star}/> Работаем с такими программами, как:</div>
@@ -152,7 +168,7 @@ const Home =()=>{
             <div className='listGrid'>
                 <div className='listItemBg'>
                     <div className='listItem'> 
-                        <img src={example}/>
+                        <img className='productImage' src="src\assets\1-кв.jpg"/>
                         <div className='gridItemText'> 
                             <Title size='22px' text="ПО «Квартплата» "/>
                             <div className='gridNote'>
@@ -169,7 +185,7 @@ const Home =()=>{
                 </div>
                <div className='listItemBg'>
                     <div className='listItem'> 
-                        <img src={example}/>
+                        <img className='productImage' src="src\assets\2-юр.jpg"/>
                         <div className='gridItemText'> 
                             <Title size='22px' text="ПО «Расчёты с юридическими лицами» "/>
                             <div className='gridNote'>
@@ -182,7 +198,7 @@ const Home =()=>{
                 </div>
                <div className='listItemBg'>
                <div className='listItem'> 
-                    <img src={example}/>
+                    <img className='productImage' src="src\assets\3-сб.jpg"/>
                     <div className='gridItemText'> 
                         <Title size='22px' text="ПО «СБЫТ» "/>
                         <div className='gridNote'>
@@ -197,7 +213,7 @@ const Home =()=>{
             <div className='listGrid'>   
                 <div className='listItemBg'>
                     <div className='listItem'> 
-                        <img src={example}/>
+                        <img className='productImage' src="src\assets\4-ик.jpg"/>
                         <div className='gridItemText'> 
                             <Title size='22px' text="ПО «Инженерно-картографическая система»  "/>
                             <div className='gridNote'>
@@ -213,7 +229,7 @@ const Home =()=>{
                 </div>
                 <div className='listItemBg'>
                     <div className='listItem'> 
-                        <img src={example}/>
+                        <img className='productImage' src="src\assets\5-то.jpg"/>
                         <div className='gridItemText'> 
                             <Title size='22px' text="ПО «Топливо и транспорт — FUEL»  "/>
                             <div className='gridNote'>
@@ -235,7 +251,7 @@ const Home =()=>{
                 </div>
                <div className='listItemBg'>
                     <div className='listItem'> 
-                        <img src={example}/>
+                        <img className='productImage' src="src\assets\6-ас.jpg"/>
                         <div className='gridItemText'> 
                             <Title size='22px' text="ПО «АСКУУТЭ»  "/>
                             <div className='gridNote'>
@@ -350,22 +366,22 @@ const Home =()=>{
                 </div>
                 <div className='licenseCarousel' id='carousel' style={{left:`${left}px`}}> 
                     <div className='licenseItem' onClick={()=>setZoom({...zoom,lic1:!zoom.lic1})} style={zoom.lic1?zoomValue:{}}>
-                        <img src="\src\assets\d14f85c9e9e52cebca0f31afe4f4e9e2976c3c08.png"/>
+                        <img src="\assets\d14f85c9e9e52cebca0f31afe4f4e9e2976c3c08.png"/>
                     </div>
                     <div className='licenseItem' onClick={()=>setZoom({...zoom,lic2:!zoom.lic2})} style={zoom.lic2?zoomValue:{}}>
-                        <img src="\src\assets\27160338aefc41b9058bb49d169822fbbde3d3d4.png"/>
+                        <img src="\assets\27160338aefc41b9058bb49d169822fbbde3d3d4.png"/>
                     </div>
                     <div className='licenseItem' onClick={()=>setZoom({...zoom,lic3:!zoom.lic3})} style={zoom.lic3?zoomValue:{}}>
-                        <img src="\src\assets\563efb0684467103cfa9d7336337d5acffd8aa2a.png"/>
+                        <img src="\assets\563efb0684467103cfa9d7336337d5acffd8aa2a.png"/>
                     </div>
                     <div className='licenseItem' onClick={()=>setZoom({...zoom,lic4:!zoom.lic4})} style={zoom.lic4?zoomValue:{}}>
-                        <img src="\src\assets\7b0ce6962d725589a38fcd6a9e7aba0fe67f8bfe.png"/>
+                        <img src="\assets\7b0ce6962d725589a38fcd6a9e7aba0fe67f8bfe.png"/>
                     </div>
                     <div className='licenseItem' onClick={()=>setZoom({...zoom,lic5:!zoom.lic5})} style={zoom.lic5?zoomValue:{}}>
-                        <img src="\src\assets\4ae1051048c0f08efd49fa90980d3dbaf97338c8.png"/>
+                        <img src="\assets\4ae1051048c0f08efd49fa90980d3dbaf97338c8.png"/>
                     </div>
                     <div className='licenseItem' onClick={()=>setZoom({...zoom,lic6:!zoom.lic6})} style={zoom.lic6?zoomValue:{}}>
-                        <img src="\src\assets\3f0b3921e9d44a9caeb6a33225b78ec142a99bd2.png"/>
+                        <img src="\assets\3f0b3921e9d44a9caeb6a33225b78ec142a99bd2.png"/>
                     </div>
                 </div>
                 <div className='buttons'>
@@ -378,7 +394,7 @@ const Home =()=>{
                 </div>
             </div>
         </div>
-        <div className='case'>
+        <div className='case' id='case'>
             <div className='title'>
                 <Title text="Главный"/> 
                 <Title color='#1C8EFF' text="кейс"/>
@@ -432,7 +448,7 @@ const Home =()=>{
                 </div>
             </div>
         </div>
-        <div className='formContainer'>
+        <div className='formContainer' id='form'>
             <div className='form'>
                 <div className='title'>
                     <Title text="Обсудить"/> 
@@ -448,15 +464,15 @@ const Home =()=>{
                     <div className='gridNoteItem'>
                     <img className='noteLogo' src={check}/> <Title color='#828282' size='16px' text="Обсудим формат сотрудничества"/>
                 </div>
-                <input className='input' onChange={(e)=>{setConsult({...consult, fio:e.target.value})}} required placeholder='Введите ваше имя *'/>
-                <input className='input' onChange={(e)=>{setConsult({...consult, phone:e.target.value})}} type='number' required placeholder='+7(000)000-00-00 *'/>
-                <input className='input' type='email' onChange={(e)=>{setConsult({...consult, email:e.target.value})}} required placeholder='mail@company.ru *'/>
+                <input className='input' onChange={(e)=>{setConsult({...consult, fio:e.target.value})}} value={consult.fio} required placeholder='Введите ваше имя *'/>
+                <input className='input' onChange={(e)=>{setConsult({...consult, phone:e.target.value})}} value={consult.phone} type='number' required placeholder='8(000)000-00-00 *'/>
+                <input className='input' type='email' onChange={(e)=>{setConsult({...consult, email:e.target.value})}} value={consult.email} required placeholder='mail@company.ru *'/>
                 <div className='textareaContainer'>
-                    <textarea onChange={(e)=>{setConsult({...consult, desc:e.target.value})}} required id='textarea' rows="5" cols="30" />
+                    <textarea onChange={(e)=>{setConsult({...consult, desc:e.target.value})}} value={consult.desc} required id='textarea' rows="5" cols="30" />
                     <label for="textarea">Опишите вашу ситуацию</label>
                 </div>
                 <div className='checkBox'>
-                    <input onChange={(e)=>{setConsult({...consult, conf:e.target.checked})}} className='chek' required type='checkbox' />
+                    <input onChange={(e)=>{setConsult({...consult, conf:e.target.checked})}} checked={consult.conf}className='chek' required type='checkbox' />
                     <div className='policy'>
                         Я согласен(-на) с условиями {' '}
                         <a href=''>Политики конфиденциальности</a>{' '}
@@ -465,7 +481,7 @@ const Home =()=>{
 
                     </div>
                 </div>
-                <Button onClick={mail}margin='0px'color='#1C8EFF' text={'Оставить заявку'}/>
+                <Button disabled={(consult.phone=='')||(consult.email=='')||(consult.desc=='')||(consult.fio=='')||(!consult.conf)} onClick={mail} margin='0px'color='#1C8EFF' text={'Оставить заявку'}/>
                 <div className='acceptance'>
                     Отправляя форму, вы даёте согласие на обработку ваших персональных данных (ФИО, номер телефона, электронную почту и комментарий) для связи c вами и обработки вашей заявки. Данные будут храниться в течение <a>12 месяцев</a>. Вы можете отозвать своё согласие в любой момент.
                 </div>

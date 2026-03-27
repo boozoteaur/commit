@@ -10,7 +10,17 @@
     margin: auto;
     transition: all 0.2s ease;
 }
-
+.buttonOff{
+    display: flex;
+    flex-direction: row;
+    padding:  8px 20px;
+    justify-content: center;
+    border-radius: 100px;
+    gap: 4px;
+    align-items: center;
+    margin: auto;
+    transition: all 0.2s ease;
+}
 .button:hover{
     box-shadow: 1px 1px 1px 1px rgba(138, 139, 139, 0.96);
 }

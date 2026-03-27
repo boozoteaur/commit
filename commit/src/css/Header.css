@@ -22,7 +22,7 @@
     flex-direction: row;
     gap: 20px;
     min-width: 470px;
-    @media only screen and (max-width: 1050px) {
+    @media only screen and (max-width: 1070px) {
         min-width: 0;
         visibility: hidden;
     }
@@ -32,11 +32,18 @@
     padding: 0;
     justify-content: center;
     will-change: color;
-    transition: color 200ms;
+    color: black;
+    
+    a{
+        transition: color 200ms;
+        size: 16px;
+        color: black;
+    }
+    a:hover{
+        color: #1C8EFF;
+    }
 }
-.navItem:hover{
-    color: #1C8EFF;
-}
+
 
 .contact{
     min-width: 300px;

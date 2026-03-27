@@ -11,11 +11,12 @@ export const Header = () => {
         <div className='header' >
             <AppLogo/>
             <div className='nav'>
-                <div style={{color:'#1C8EFF' }}className='navItem'>О компании</div>
-                <div  className='navItem'>Программные продукты</div>
-                <div className='navItem'>Услуги</div>
-                <div className='navItem'>Главный кейс</div>
-                <div className='navItem'>Контакты</div>
+                <div style={{color:'#1C8EFF' }}className='navItem'> <a href='#about'>О компании</a></div>
+                <div  className='navItem'><a href='#product'>Программные продукты</a></div>
+                <div className='navItem'>
+                            <a href="#services">Услуги</a></div>
+                <div className='navItem'> <a href="#case">Главный кейс</a></div>
+                <div className='navItem'><a href="#form">Контакты</a></div>
             </div>
             <div className='contact'> 
                 <div style={{width:'146px'}}>

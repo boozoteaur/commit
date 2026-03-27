@@ -26,7 +26,13 @@
                         color: #828282;
                     }
                 }
+                @media only screen and (max-width: 640px) {
+            flex-direction: column;
+        }
             }
+            @media only screen and (max-width: 1000px) {
+            flex-direction: column;
+        }
         }
         .info2{
             width: 100%;
@@ -52,4 +58,5 @@
         width: 96%;
         border: 1px solid #8282820D;
     }
+    
 }

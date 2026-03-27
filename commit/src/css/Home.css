@@ -9,69 +9,73 @@
     .backround{ 
         height: 420px;
         padding: 40px;
-        @media only screen and (max-width: 940px) {
+        @media only screen and (max-width: 1340px) {
+            display: none;
             height: auto;
             width: auto;
         }
     }
      .leftSide{
-    width: 670px;
-    gap:15px;
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    .leftSide1{
-        min-width: 570px;
-        margin-right: auto;
-        font-size: 12px;
-        padding:  10px 18px;
-        color: #828282;
-        background-color: rgb(255, 255, 255);
-        border-radius: 999px;
-        @media only screen and (max-width: 940px) {
-        min-width: 0px;
-    }
-    }
-    .leftSide2{
-        width:100%;
-        font-weight: 500;
-        line-height: 120%;
-        color: #1E1E1E;
-        
-        font-style: normal;
-        font-size: 36px;
-        letter-spacing: -0.02em;
-        a{
-            color: #1C8EFF;
-        }
-        @media only screen and (max-width: 940px) {
-        font-size: 16px;
-    }
-    }
-    .leftSide3{
-        width:100%;
-        font-size: 16px;
-        color: #828282;
-    }
-    .leftSide4{
-        min-width: 366px;
-        width:100%;
-        gap: 15px;
-        margin-top: 2px;
-        align-items: flex-start;
+        width: 50%;
+        gap:15px;
         display: flex;
-        flex-direction: row;
-        
-    }
-    .leftSide5{
-        
-        width:100%;
-        font-size: 12px;
-        color: #828282;
-    }
-    @media only screen and (max-width: 460px) {
-            padding-right:  50px;
+        flex-direction: column;
+        padding: 40px;
+        .leftSide1{
+            min-width: 570px;
+            margin-right: auto;
+            font-size: 12px;
+            padding:  10px 18px;
+            color: #828282;
+            background-color: rgb(255, 255, 255);
+            border-radius: 999px;
+            @media only screen and (max-width: 940px) {
+            min-width: 0px;
         }
+        }
+        .leftSide2{
+            width:100%;
+            font-weight: 500;
+            line-height: 120%;
+            color: #1E1E1E;
+            
+            font-style: normal;
+            font-size: 36px;
+            letter-spacing: -0.02em;
+            a{
+                color: #1C8EFF;
+            }
+            @media only screen and (max-width: 940px) {
+            font-size: 16px;
+        }
+        }
+        .leftSide3{
+            width:100%;
+            font-size: 16px;
+            color: #828282;
+        }
+        .leftSide4{
+            min-width: 366px;
+            width:100%;
+            gap: 15px;
+            margin-top: 2px;
+            align-items: flex-start;
+            display: flex;
+            flex-direction: row;
+            
+        }
+        .leftSide5{
+            
+            width:100%;
+            font-size: 12px;
+            color: #828282;
+        }
+        @media only screen and (max-width: 1340px) {
+            width:100%;
+        }
+        @media only screen and (max-width: 460px) {
+                padding-right:  50px;
+            }
     
 }
 
@@ -92,6 +96,7 @@
     display: flex;
     gap: 15px;
     justify-content: center;
+    
 }
 
 .benefit{
@@ -215,6 +220,10 @@
 }
 .listItem{
     padding: 10px;
+    .productImage{
+        width: 400px;
+        height: 200px
+    }
 }
 .gridItemText{
     display: flex;
@@ -402,6 +411,7 @@
             border-radius: 25px;
             border: 1px solid #1C8EFF;
             resize: none;
+            background-color: white;
 
         }
         .input::placeholder{
@@ -421,6 +431,7 @@
             resize: none;
             font-family: 'Inter';
             font-size: 16px;
+            background-color: white;
         }
         
         .textareaContainer  label{
